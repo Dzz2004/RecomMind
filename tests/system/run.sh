@@ -1,0 +1,1 @@
+nohup python performance_test.py &

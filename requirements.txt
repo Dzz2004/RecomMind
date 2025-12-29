@@ -1,0 +1,9 @@
+# RAG工作流后端API服务器依赖
+Flask==2.3.3
+Flask-CORS==4.0.0
+torch>=2.0.0
+transformers>=4.30.0
+sentence-transformers>=2.2.2
+chromadb>=0.4.0
+numpy>=1.24.0
+dataclasses-json>=0.6.0
