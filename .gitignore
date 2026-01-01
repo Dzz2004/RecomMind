@@ -1,0 +1,11 @@
+.vscode/
+__pycache__/
+oldtest/
+test_code_vector_db
+vector_db
+.coverage
+.coveragerc
+codeRAGWorkFlow.py
+pytest.ini
+qwen3_local.py
+test_output.log
