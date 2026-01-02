@@ -27,6 +27,13 @@
 
 ![Alt text](docs/images/intro.png)
 
+
+> ### **文档导航**
+> - 设计细节详见：[设计文档](docs/design/DESIGN.md)
+> - 测试细节详见：[测试文档](docs/test/TEST.md)
+> - 开发过程性文档见：[过程性文档](docs/process/PROCESS.md)
+
+
 ---
 
 ## 🎥 演示视频
@@ -110,7 +117,7 @@ pnpm run dev
 ## 📊 主要测试结果
 
 项目构建了**分层测试体系**，从工程角度验证系统的可靠性与可复现性：
-测试细节详见：[label](docs/test/TEST.md)
+测试细节详见：[测试文档](docs/test/TEST.md)
 
 ![Alt text](docs/images/all-test.png)
 
