@@ -131,11 +131,11 @@
 
 workflow流程图：
 
-![workflow.jpg](workflow.jpg)
+![Alt text](../images/workflow.jpg)
 
 实验验证：
 
-![performance_comparison.png](performance_comparison.png)
+![Alt text](../images/performance_comparison.png)
 
 ## 3.2 Prompt迭代过程
 
@@ -212,6 +212,8 @@ workflow流程图：
 - **反向学习引导**：当学生答错时，系统不会直接给出答案，而是调用“引导 Agent”，根据学生的错误点，检索出对应的教材切片或内核源码段落，提示学生进行针对性复习。
 
 ## 5. 关键里程碑与会议记录
+
+*详细记录见[会议记录与git_log](RECORD.md)*
 
 ## 5.1 第一阶段：项目启动与教材知识库构建 (9.23 - 10.12)
 

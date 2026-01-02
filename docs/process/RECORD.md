@@ -153,8 +153,6 @@
 
 ## Git Log
 
-![屏幕截图 2026-01-01 213657.png](%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2026-01-01_213657.png)
-
-![屏幕截图 2026-01-01 213752.png](%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2026-01-01_213752.png)
-
-![屏幕截图 2026-01-01 213801.png](%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2026-01-01_213801.png)
+![Alt text](../images/git_log_1.png)
+![Alt text](../images/git_log_2.png)
+![Alt text](../images/git_log_3.png)

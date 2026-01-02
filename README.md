@@ -2,6 +2,9 @@
 
 **基于 Linux 教材与代码检索的 AI 教学辅助系统**
 
+![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
+![Docs License](https://img.shields.io/badge/Docs-CC%20BY--SA%204.0-lightgrey.svg)
+
 👥 开发团队：**CS糕手**
 
 ---
@@ -22,7 +25,7 @@
 
 于一体的教学辅助系统，目标是在**保证知识可靠性与可追溯性**的前提下，为学生提供接近“助教式”的学习支持。
 
-![image.png](image.png)
+![Alt text](docs/images/intro.png)
 
 ---
 
@@ -44,8 +47,9 @@
 ## 🧭 技术路线
 
 RecomMind 采用**前后端分离 + 多工作流并行的 RAG 架构**，围绕教学场景构建了清晰、可扩展的技术路线。
+*详细设计文档：[设计文档](docs/design/DESIGN.md)*
 
-![image.png](image%201.png)
+![Alt text](docs/images/architecture.png)
 
 ### 1️⃣ 教材内容检索（Textbook RAG Workflow）
 
@@ -117,7 +121,7 @@ pnpm run dev
 
 项目构建了**分层测试体系**，从工程角度验证系统的可靠性与可复现性：
 
-![image.png](image%202.png)
+![Alt text](docs/images/all-test.png)
 
 ### ✅ 功能与流程
 
@@ -137,15 +141,6 @@ pnpm run dev
 - 性能数据完整记录，便于后续分析与对比
 - 满足教学场景下的交互实时性需求
 
+
 > 📎 详细测试设计、用例与结果见项目配套测试文档。
-> 
-
----
-
-如果你愿意，下一步我可以继续帮你做三件**非常加分**的事之一：
-
-1. 🔥 再压缩一版「**竞赛展示专用 README（1 页）**」
-2. 🧠 单独写一个「**创新点与技术亮点**」章节，方便评委快速抓重点
-3. 🎤 帮你把 README 的结构直接**对齐答辩讲稿 / 展示 PPT**
-
-你选一个，我按评委视角继续帮你打磨。
+> 开发过程性文档见：[过程性文档](docs/process/PROCESS.md)

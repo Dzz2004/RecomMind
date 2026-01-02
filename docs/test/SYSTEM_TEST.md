@@ -67,7 +67,7 @@
 | **常驻内存大小** | Resident Set Size(RSS) | 2.66 GB |
 | **物理内存占用率** | %MEM | 1.41% |
 
-![image.png](image.png)
+![Alt text](../images/system_test.png)
 
 ---
 
