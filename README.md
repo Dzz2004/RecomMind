@@ -1,216 +1,151 @@
-# RAG工作流前后端集成系统
+# RecomMind
 
-这是一个完整的RAG（检索增强生成）工作流系统，包含Python后端API服务器和TypeScript前端界面。
+**基于 Linux 教材与代码检索的 AI 教学辅助系统**
 
-## 系统架构
+👥 开发团队：**CS糕手**
 
-```
-前端 (TypeScript/React) ←→ Python后端API服务器 ←→ RAG工作流
-                                    ↓
-                               Qwen3-8B模型 + BGE-M3嵌入模型
-                                    ↓
-                               ChromaDB向量数据库
-```
+---
 
-## 功能特点
+## 🤝 介绍
 
-### 后端功能
-- 🤖 集成Qwen3-8B大语言模型
-- 🔍 基于BGE-M3的向量检索
-- 📚 ChromaDB向量数据库存储
-- 🔄 多轮对话管理
-- ⚙️ 相似度阈值动态调整
-- 📊 RAG系统状态监控
+**RecomMind** 是一个面向高校《操作系统》课程的 AI 教学辅助系统，聚焦学生在学习过程中普遍存在的三类困难：
 
-### 前端功能
-- 💬 智能聊天界面
-- 🔄 RAG模式开关
-- 📄 文档引用显示
-- 🧹 对话历史管理
-- ⚙️ 系统配置界面
+- 📚 教材内容篇幅大、知识点分散，**难以快速定位关键理论**
+- 🧩 Linux 内核源码规模庞大、结构复杂，**理论与实现脱节**
+- 📝 习题判题与解析依赖人工，**反馈慢、可解释性弱**
 
-## 快速开始
+为此，RecomMind 以 **RAG（Retrieval-Augmented Generation）** 为核心技术框架，构建了一个集：
 
-### 1. 环境准备
+- **教材语义检索**
+- **Linux 内核源码智能定位与讲解**
+- **操作系统习题智能判题与解析**
 
-确保已安装以下依赖：
-- Python 3.8+
-- Node.js 18+ (推荐18.20+，与Vite 4.x兼容)
-- CUDA（可选，用于GPU加速）
+于一体的教学辅助系统，目标是在**保证知识可靠性与可追溯性**的前提下，为学生提供接近“助教式”的学习支持。
 
-**注意**: 如果使用Node.js 18，请确保使用Vite 4.x版本。如果使用Node.js 20+，可以使用Vite 7.x版本。
+![image.png](image.png)
 
-### 2. 启动后端服务器
+---
+
+## 🎥 演示视频
+
+> 📌 演示视频将在此处提供
+> 
+
+建议内容包括：
+
+- 教材知识问答演示（含检索依据展示）
+- Linux 源码检索与代码讲解流程
+- 习题判题与解析反馈示例
+
+（如为竞赛提交，可在此处放置 B 站 / 腾讯视频 / 本地录屏链接）
+
+---
+
+## 🧭 技术路线
+
+RecomMind 采用**前后端分离 + 多工作流并行的 RAG 架构**，围绕教学场景构建了清晰、可扩展的技术路线。
+
+![image.png](image%201.png)
+
+### 1️⃣ 教材内容检索（Textbook RAG Workflow）
+
+- 将操作系统教材进行**结构化切分与语义向量化**
+- 支持自然语言提问（非关键词匹配）
+- 多轮对话中可自动补全前置知识
+- 生成回答严格基于检索到的教材片段，避免“脱离教材发挥”
+
+### 2️⃣ Linux 源码检索（Code RAG Workflow）
+
+- 面向 Linux 内核核心目录（如 `kernel/`、`mm/`）
+- 采用**两阶段检索策略**：
+    - 文件级摘要召回（快速缩小范围）
+    - 代码块级语义重排（精准定位函数/逻辑）
+- 返回结果包含：
+    - 源码文件路径
+    - 起止行号
+    - 代码功能说明
+- 实现“**以自然语言问题 → 精准源码定位 → 教学式讲解**”
+
+### 3️⃣ 智能判题与解析
+
+- 支持选择题、填空题、简答题等
+- 判题过程引入教材检索作为**证据来源**
+- 输出结构化结果：
+    - 正误判断
+    - 置信度
+    - 推理依据
+    - 知识点分析与改进建议
+- 强调“**判得清楚、讲得明白**”，而非只给分数
+
+---
+
+## 🚀 快速使用
+
+### 1. 获取代码
 
 ```bash
-cd workflow_wxk
-chmod +x start_server.sh
-./start_server.sh
+git clone <your-repo-url>
+cd RecomMind
 ```
 
-或者手动启动：
+### 2. 启动后端
 
 ```bash
-# 安装依赖
-pip3 install -r requirements.txt
-
-# 启动服务器
+pip install -r requirements.txt
 python3 backend_server.py
 ```
 
-后端服务器将在 `http://localhost:5000` 启动。
+后端服务默认运行于：
 
-### 3. 启动前端应用
+```
+http://localhost:5000
+```
+
+### 3. 启动前端
 
 ```bash
 cd frontend
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
-前端应用将在 `http://localhost:5173` 启动（Vite默认端口）。
+启动后即可通过浏览器访问系统界面。
 
-**注意**: 这是一个Vue.js + Vite项目，使用 `npm run dev` 而不是 `npm start`。
+---
 
-**如果遇到Node.js版本兼容性问题**，可以运行修复脚本：
+## 📊 主要测试结果
 
-```bash
-cd workflow_wxk
-chmod +x fix_frontend.sh
-./fix_frontend.sh
-```
+项目构建了**分层测试体系**，从工程角度验证系统的可靠性与可复现性：
 
-## API接口文档
+![image.png](image%202.png)
 
-### 聊天接口
-- **URL**: `POST /api/chat`
-- **请求体**:
-  ```json
-  {
-    "userInput": "用户问题",
-    "useRag": true
-  }
-  ```
-- **响应**:
-  ```json
-  {
-    "code": 200,
-    "message": "聊天处理成功",
-    "data": {
-      "thought": "AI思考过程",
-      "answer": "AI回答",
-      "documents": [
-        {
-          "source": "ch1.pdf",
-          "page": 5,
-          "content": "文档内容",
-          "chapter": 1,
-          "finalPage": 15
-        }
-      ]
-    }
-  }
-  ```
+### ✅ 功能与流程
 
-### 其他接口
-- `POST /api/conversation/clear` - 清空对话历史
-- `GET /api/conversation/summary` - 获取对话摘要
-- `POST /api/config/similarity-threshold` - 更新相似度阈值
-- `GET /api/rag/info` - 获取RAG系统信息
-- `GET /api/health` - 健康检查
+- 教材 RAG 与源码 RAG 工作流均可稳定运行
+- 支持多轮对话与异常输入回退
+- 教材检索、源码检索、判题模块相互独立、协同工作
 
-## 配置说明
+### 🧪 算法与逻辑测试
 
-### 模型路径配置
-在 `backend_server.py` 中修改以下配置：
+- 核心检索与决策流程均通过自动化测试
+- 覆盖主要逻辑分支与典型异常场景
+- 测试结果可重复、可复现
 
-```python
-config = {
-    "llm_path": "你的Qwen3模型路径",
-    "embedding_model_path": "你的BGE-M3模型路径",
-    "db_path": "./vector_db",
-    "similarity_threshold": 0.3
-}
-```
+### ⚙️ 系统性能
 
-### 前端API地址配置
-在 `frontend/src/api/chatbot.ts` 中修改：
+- 教材检索与源码检索流程在真实环境下稳定执行
+- 性能数据完整记录，便于后续分析与对比
+- 满足教学场景下的交互实时性需求
 
-```typescript
-const API_CONFIG = {
-  baseURL: 'http://localhost:5000/api', // 修改为你的后端地址
-  timeout: 30000
-}
-```
+> 📎 详细测试设计、用例与结果见项目配套测试文档。
+> 
 
-## 故障排除
+---
 
-### 常见问题
+如果你愿意，下一步我可以继续帮你做三件**非常加分**的事之一：
 
-1. **前端启动失败**
-   - 确保使用 `npm run dev` 而不是 `npm start`
-   - 检查Node.js版本是否 >= 18 (推荐18.20+)
-   - 如果使用Node.js 18，确保Vite版本为4.x
-   - 如果使用Node.js 20+，可以使用Vite 7.x
-   - 删除 `node_modules` 和 `package-lock.json`，重新运行 `npm install`
-   - 检查端口5173是否被占用
+1. 🔥 再压缩一版「**竞赛展示专用 README（1 页）**」
+2. 🧠 单独写一个「**创新点与技术亮点**」章节，方便评委快速抓重点
+3. 🎤 帮你把 README 的结构直接**对齐答辩讲稿 / 展示 PPT**
 
-2. **模型加载失败**
-   - 检查模型路径是否正确
-   - 确保有足够的内存/显存
-   - 检查CUDA环境（如果使用GPU）
-
-3. **向量数据库错误**
-   - 确保 `./vector_db` 目录存在且有写权限
-   - 检查ChromaDB版本兼容性
-
-4. **前端连接失败**
-   - 检查后端服务器是否在 `http://localhost:5000` 启动
-   - 确认Vite代理配置正确（`vite.config.ts`）
-   - 检查浏览器控制台是否有CORS错误
-
-5. **依赖包问题**
-   - Python: 使用 `pip3 install -r requirements.txt` 重新安装
-   - Node.js: 删除 `node_modules` 重新安装
-   - 检查Python和Node.js版本兼容性
-
-### 日志查看
-
-后端日志会显示在控制台，包括：
-- 模型加载状态
-- API请求处理
-- RAG检索过程
-- 错误信息
-
-## 开发说明
-
-### 后端扩展
-- 在 `backend_server.py` 中添加新的API路由
-- 在 `simple_rag_workflow.py` 中扩展RAG功能
-- 修改数据模型以适应新需求
-
-### 前端扩展
-- 在 `frontend/src/api/chatbot.ts` 中添加新的API调用
-- 在 `frontend/src/types/index.ts` 中定义新的数据类型
-- 在前端组件中集成新功能
-
-## 性能优化
-
-1. **模型优化**
-   - 使用量化模型减少内存占用
-   - 启用GPU加速（如果可用）
-   - 调整批处理大小
-
-2. **检索优化**
-   - 调整相似度阈值
-   - 优化文档分块策略
-   - 使用更高效的嵌入模型
-
-3. **缓存策略**
-   - 缓存频繁查询的结果
-   - 使用Redis等缓存系统
-   - 实现对话历史缓存
-
-## 许可证
-
-本项目采用MIT许可证。
+你选一个，我按评委视角继续帮你打磨。
