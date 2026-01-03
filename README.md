@@ -38,7 +38,9 @@
 
 ## 🎥 演示视频
 
-> 📌 演示视频将在此处提供
+> 📌 通过网盘分享的文件：演示视频.mp4
+链接: https://pan.baidu.com/s/1UHbiqecc_g5Y5uyPq36qTQ?pwd=7yem 提取码: 7yem 
+--来自百度网盘超级会员v5的分享
 ---
 
 ## 🧭 技术路线
