@@ -3,7 +3,6 @@ __pycache__/
 oldtest/
 retrieval_results/
 test_code_vector_db
-vector_db
 .coverage
 .coveragerc
 codeRAGWorkFlow.py
